@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — SakhaWear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="assets/images/logo/logo.png" alt="SakhaWear" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="navbar-logo-placeholder" style="display:none">SAKHAWEAR</div>
+    </a>
+    <div class="navbar-menu">
+      <a href="index.html" class="navbar-link">Beranda</a>
+      <a href="products.html" class="navbar-link">Produk</a>
+    </div>
+    <div class="navbar-cta">
+      <a href="cart.html" class="navbar-cart">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero page-hero-compact">
+  <div class="container">
+    <h1 class="page-hero-title">Checkout</h1>
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>›</span><a href="cart.html">Keranjang</a><span>›</span><span>Checkout</span></div>
+  </div>
+</section>
+
+<section class="section section-tight bg-light">
+  <div class="container">
+    <div id="checkout-form-section">
+      <div class="checkout-layout">
+        <div>
+          <div class="form-card">
+            <div class="checkout-step-header">
+              <div class="checkout-step-num">1</div>
+              <div class="checkout-step-title">Data Pemesan</div>
+            </div>
+            <form id="checkout-form">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Nama Lengkap *</label>
+                  <input type="text" id="co-name" class="form-input" placeholder="Nama pemesan">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">No. WhatsApp *</label>
+                  <input type="tel" id="co-phone" class="form-input" placeholder="08xxxxxxxxxx">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nama Sekolah / Instansi *</label>
+                <input type="text" id="co-school" class="form-input" placeholder="Nama sekolah atau instansi">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Alamat Pengiriman *</label>
+                <textarea id="co-address" class="form-input form-textarea" placeholder="Alamat lengkap untuk pengiriman"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Catatan Tambahan</label>
+                <textarea id="co-note" class="form-input form-textarea" placeholder="Ukuran spesifik, permintaan khusus, dll."></textarea>
+              </div>
+
+              <div class="checkout-step-header">
+                <div class="checkout-step-num">2</div>
+                <div class="checkout-step-title">Metode Pembayaran</div>
+              </div>
+              <div class="payment-options">
+                <label class="payment-option" id="pay-bank">
+                  <input type="radio" name="payment" value="Transfer Bank" checked class="payment-radio">
+                  <div class="payment-info">
+                    <div class="payment-title">Transfer Bank</div>
+                    <div class="payment-description">BCA, BRI, Mandiri, BNI</div>
+                  </div>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="COD" class="payment-radio">
+                  <div class="payment-info">
+                    <div class="payment-title">COD / Bayar di Tempat</div>
+                    <div class="payment-description">Bayar saat seragam diterima</div>
+                  </div>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" value="WhatsApp" class="payment-radio">
+                  <div class="payment-info">
+                    <div class="payment-title">Konfirmasi via WhatsApp</div>
+                    <div class="payment-description">Tim kami akan menghubungi Anda</div>
+                  </div>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-full" id="co-submit">
+                ✅ Konfirmasi Pesanan
+              </button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="cart-summary">
+            <div class="section-title section-title-small">Ringkasan Pesanan</div>
+            <div id="checkout-items"></div>
+            <div id="checkout-total" class="summary-total"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="checkout-success" class="success-state">
+      <div class="success-emoji">🎉</div>
+      <h2 class="success-title">Pesanan Berhasil!</h2>
+      <p class="success-text">No. Pesanan Anda:</p>
+      <div id="success-order-id" class="success-order-id"></div>
+      <p class="success-copy">Tim kami akan menghubungi Anda via WhatsApp dalam 1×24 jam untuk konfirmasi dan detail pembayaran.</p>
+      <div class="success-actions">
+        <a href="history.html" class="btn btn-primary btn-lg">Lihat Riwayat Pesanan</a>
+        <a href="index.html" class="btn btn-outline btn-lg">Kembali ke Beranda</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 SakhaWear.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data/products.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>

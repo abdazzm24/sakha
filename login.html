@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin — SakhaWear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+</head>
+<body>
+<div class="login-page">
+  <!-- LEFT PANEL -->
+  <div class="login-left">
+    <div style="position:absolute;width:400px;height:400px;background:rgba(250,119,189,0.15);border-radius:50%;filter:blur(80px);top:-100px;right:-100px;pointer-events:none"></div>
+    <div style="position:absolute;width:300px;height:300px;background:rgba(128,184,236,0.15);border-radius:50%;filter:blur(60px);bottom:-60px;left:-60px;pointer-events:none"></div>
+    <div style="position:relative;z-index:1;text-align:center">
+      <div style="width:120px;height:40px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:0.875rem;margin:0 auto 40px">SAKHAWEAR</div>
+      <h2 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:white;margin-bottom:16px">Panel Admin</h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:320px">Kelola produk, artikel, pengguna, dan transaksi SakhaWear dari satu dashboard terpusat.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px;max-width:320px">
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:1.75rem;font-weight:800;color:white">6</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:4px">Produk Aktif</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:1.75rem;font-weight:800;color:white">5</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:4px">Transaksi</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:1.75rem;font-weight:800;color:white">6</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:4px">Artikel</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:20px;text-align:center">
+          <div style="font-size:1.75rem;font-weight:800;color:white">5</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:4px">Pengguna</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="login-right">
+    <div class="login-form-box">
+      <div class="login-form-logo">SAKHAWEAR</div>
+      <h1 class="login-title">Selamat Datang</h1>
+      <p class="login-subtitle">Masukkan nama dan password untuk mengakses dashboard admin.</p>
+
+      <div id="login-error" style="display:none;background:rgba(232,1,55,0.08);border:1px solid rgba(232,1,55,0.2);color:var(--accent-pink);padding:12px 16px;border-radius:var(--radius-md);font-size:0.875rem;margin-bottom:20px"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label">Nama</label>
+          <input type="text" id="login-name" class="form-input" placeholder="Masukkan nama Anda" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div style="position:relative">
+            <input type="password" id="login-password" class="form-input" placeholder="Masukkan password" autocomplete="current-password" style="padding-right:44px">
+            <button type="button" onclick="togglePass()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted)" id="pass-toggle">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:8px" id="login-btn">
+          Masuk ke Dashboard
+        </button>
+      </form>
+
+      <div style="margin-top:32px;padding:16px;background:var(--light-gray);border-radius:var(--radius-md);font-size:0.8125rem;color:var(--text-muted);text-align:center">
+        💡 <strong>Tip:</strong> Masukkan nama dan password apapun untuk masuk ke mode demo.
+      </div>
+
+      <div style="margin-top:24px;text-align:center">
+        <a href="index.html" style="font-size:0.875rem;color:var(--text-muted)">← Kembali ke Website</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/login.js"></script>
+<script>
+function togglePass() {
+  const inp = document.getElementById('login-password');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+</script>
+</body>
+</html>
