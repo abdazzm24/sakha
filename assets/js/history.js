@@ -32,7 +32,7 @@ function renderHistory() {
         ${order.items.slice(0, 4).map(item => `
           <div class="history-item-card">
             <div class="history-item-thumb">
-              <img src="${item.image || ''}" alt="${item.name}" onerror="this.style.display='none'">
+              <img src="${item.image || ''}" alt="${item.name}" onerror="handleImgError(this)">
             </div>
             <div>
               <div class="history-item-name">${item.name}</div>

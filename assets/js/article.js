@@ -40,7 +40,7 @@ function renderArticleDetail() {
           <span>${article.author}</span><span>·</span><span>${article.date}</span><span>·</span><span>${article.readTime} baca</span>
         </div>
         <div class="article-detail-image-wrapper">
-          <img src="${article.image}" alt="${article.title}" class="responsive-cover-img" onerror="this.style.display='none'">
+          <img src="${article.image}" alt="${article.title}" class="responsive-cover-img" onerror="handleImgError(this)">
         </div>
         <div class="article-body">${article.content}</div>
       </div>
@@ -50,7 +50,7 @@ function renderArticleDetail() {
           ${ARTICLES.filter(a => a.id !== article.id).slice(0,4).map(a => `
             <a href="article-detail.html?id=${a.id}" class="article-sidebar-link">
               <div class="article-sidebar-thumb">
-                <img src="${a.image}" alt="${a.title}" class="responsive-cover-img" onerror="this.style.display='none'">
+                <img src="${a.image}" alt="${a.title}" class="responsive-cover-img" onerror="handleImgError(this)">
               </div>
               <div>
                 <div class="article-sidebar-text">${a.title}</div>

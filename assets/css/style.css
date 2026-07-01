@@ -120,6 +120,9 @@ input, textarea, select { font-family: inherit; }
   font-size: var(--text-xs);
   letter-spacing: 0.05em;
 }
+.navbar-logo-placeholder.is-visible {
+  display: flex;
+}
 .cart-badge {
   position: absolute;
   top: 4px;
@@ -141,7 +144,7 @@ input, textarea, select { font-family: inherit; }
   gap: var(--space-1);
 }
 .navbar-link {
-  font-size: var(--text-xs);
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-secondary);
   padding: calc(var(--space-1)) var(--space-3);
@@ -210,19 +213,20 @@ input, textarea, select { font-family: inherit; }
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 100px;
-  left: 24px;
-  right: 24px;
+  top: calc(var(--navbar-height) + 12px);
+  left: 16px;
+  right: 16px;
   background: white;
   border-radius: var(--radius-2xl);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-xl);
   padding: var(--space-4);
-  z-index: 999;
+  z-index: 1100;
   flex-direction: column;
   gap: var(--space-1);
 }
 .mobile-menu.open { display: flex; }
+body.menu-open { overflow: hidden; }
 .mobile-menu .navbar-link {
   padding: var(--space-3) var(--space-4);
   display: block;
@@ -1115,7 +1119,7 @@ input, textarea, select { font-family: inherit; }
   border-color: var(--primary);
 }
 .payment-radio { accent-color: var(--primary); }
-.payment-info {}
+/* payment info block */
 .payment-title { font-weight: 600; font-size: 0.875rem; }
 .payment-description { font-size: 0.75rem; color: var(--text-muted); }
 .empty-placeholder { text-align: center; padding: var(--space-16) 0; color: var(--text-muted); }

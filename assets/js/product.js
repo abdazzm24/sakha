@@ -40,7 +40,7 @@ function renderProductDetail() {
         <div class="product-thumbnails">
           ${product.images.map((img, i) => `
             <div class="product-thumb ${i===0?'active':''}" onclick="selectThumb(this,'${img}')">
-              <img src="${img}" alt="thumb ${i+1}" onerror="this.style.display='none'">
+              <img src="${img}" alt="thumb ${i+1}" onerror="handleImgError(this)">
             </div>
           `).join('')}
         </div>
@@ -49,7 +49,7 @@ function renderProductDetail() {
         <span class="badge badge-primary product-detail-category">${product.category}</span>
         <h1 class="product-detail-name">${product.name}</h1>
         <div class="product-detail-price">${formatRupiah(product.price)} <small>/ pcs (min. ${product.minOrder} pcs)</small></div>
-        <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))} <span style="font-size:0.8rem;color:var(--text-muted)">(${product.reviewCount} ulasan)</span></div>
+        <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))} <span class="product-review-count">(${product.reviewCount} ulasan)</span></div>
         <p class="product-detail-desc">${product.longDescription}</p>
         <div class="product-specs">
           <div class="spec-row"><span class="spec-label">Material</span><span class="spec-value">${product.material}</span></div>

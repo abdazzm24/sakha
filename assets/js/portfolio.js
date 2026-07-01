@@ -28,7 +28,7 @@ function renderPortfolioDetail() {
   el.innerHTML = `
     <div class="portfolio-detail-layout">
       <div class="portfolio-detail-img">
-        <img src="${portfolio.image}" alt="${portfolio.school}" class="responsive-cover-img" onerror="this.parentElement.style.minHeight='400px';this.parentElement.innerHTML='<div class=&quot;img-placeholder&quot;><span>Gambar tidak tersedia</span></div>'">
+        <img src="${portfolio.image}" alt="${portfolio.school}" class="responsive-cover-img" onerror="this.parentElement.innerHTML='<div class=&quot;img-placeholder&quot;><span>Gambar tidak tersedia</span></div>'">
       </div>
       <div>
         <div class="portfolio-info-card">

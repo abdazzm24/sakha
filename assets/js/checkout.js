@@ -11,7 +11,7 @@ function renderCheckoutSummary() {
   container.innerHTML = cart.map(item => `
     <div class="order-summary-item">
       <div class="order-item-img">
-        <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'">
+        <img src="${item.image}" alt="${item.name}" onerror="handleImgError(this)">
       </div>
       <div class="order-item-info">
         <div class="order-item-name">${item.name}</div>
